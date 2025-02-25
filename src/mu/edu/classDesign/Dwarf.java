@@ -1,6 +1,6 @@
 package mu.edu.classDesign;
 
-public class Dwarf extends MiddleEarthCharacters{
+public class Dwarf extends MiddleEarthCharacter{
 
 	public Dwarf(String name, double health, double power) {
 		super(name, health, power);
