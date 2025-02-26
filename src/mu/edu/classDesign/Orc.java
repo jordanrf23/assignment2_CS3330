@@ -7,4 +7,16 @@ public class Orc extends MiddleEarthCharacter{
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public boolean attack(MiddleEarthCharacter target) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String getRace() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
