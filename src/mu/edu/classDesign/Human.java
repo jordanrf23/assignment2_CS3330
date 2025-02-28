@@ -1,6 +1,10 @@
 package mu.edu.classDesign;
 
 public class Human extends MiddleEarthCharacter{
+	
+	//1.5 X damage against wizard
+	//0 damage against orc and human
+	//normal damage against elf and dwarf
 
 	public Human(String name, double health, double power) {
 		super(name, health, power);
