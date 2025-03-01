@@ -16,16 +16,20 @@ public class Elf extends MiddleEarthCharacter{
 
 	@Override
 	public boolean attack(MiddleEarthCharacter target) {
-		// TODO Auto-generated method stub
-		
-		
-		return false;
+
+		if(target instanceof Elf || target instanceof Dwarf) {
+			return false; // no damage is done
+		}else if (target instanceof Orc) {
+			target.setHealth(target.getHealth()-(1.5 * this.power)); //1.5 damage
+		}else {
+			target.setHealth(target.getHealth()- this.power);//regular damage is done
+		}
+		return true;
 	}
 
 	@Override
 	public String getRace() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Elf";
 	}
 
 }
