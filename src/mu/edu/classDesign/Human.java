@@ -8,19 +8,26 @@ public class Human extends MiddleEarthCharacter{
 
 	public Human(String name, double health, double power) {
 		super(name, health, power);
-		// TODO Auto-generated constructor stub
+		this.name = name;
+		this.health = health;
+		this.power = power;
 	}
 
 	@Override
 	public boolean attack(MiddleEarthCharacter target) {
-		// TODO Auto-generated method stub
-		return false;
+		if(target instanceof Human || target instanceof Orc) {
+			return false; // no damage is done
+		}else if (target instanceof Wizard) {
+			target.setHealth(target.getHealth()-(1.5 * this.power)); //1.5 damage
+		}else {
+			target.setHealth(target.getHealth()- this.power);//regular damage is done
+		}
+		return true;
 	}
 
 	@Override
 	public String getRace() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Human";
 	}
 
 }

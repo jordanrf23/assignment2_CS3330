@@ -8,7 +8,6 @@ public class Elf extends MiddleEarthCharacter{
 
 	public Elf(String name, double health, double power) {
 		super(name, health, power);
-		// TODO Auto-generated constructor stub
 		this.name = name;
 		this.health = health; 
 		this.power = power;
