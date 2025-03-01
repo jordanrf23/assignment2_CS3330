@@ -12,7 +12,7 @@ public class Main {
 		System.out.println("Outline for you to know before choosing your character.");
 		System.out.println("Your class and power dermines what the attack is worth");
 		MiddleEarthCouncil council = MiddleEarthCouncil.getInstance();
-		CharacterManager characterMangaer = council.getCharacterManager();
+		CharacterManager characterManager = council.getCharacterManager();
 		Menu menu = new Menu(characterManager);
 		menu.start();
 
