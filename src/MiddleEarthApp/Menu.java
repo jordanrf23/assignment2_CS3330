@@ -60,20 +60,62 @@ public class Menu {
 	}
 
 	private void executeAttacks() {
-		// TODO Auto-generated method stub
+		
 		
 	}
-
+	
+	/*
+	 * Allows the user to delete a character based on the name they give
+	 */
 	private void deleteCharacter() {
-		// TODO Auto-generated method stub
+		System.out.println("Enter character name to delete:");
+		String name = scanner.nextLine();
+		MiddleEarthCharacter character = characterManager.getCharacter(name);
 		
+		if(character == null) {
+			System.out.println("Character not found.");
+			return;
+		}
+		
+		boolean deleted = characterManager.deleteCharacter(character);
+		if(deleted) {
+			System.out.println("Your character has been deleted.");
+		}else {
+			System.out.println("No change happened.");
+		}
 	}
-
+	
+	/*
+	 * Allows the user to update a character off of the name they give
+	 */
 	private void updateCharacter() {
-		// TODO Auto-generated method stub
+		System.out.println("Enter character name to update:");
+		String name = scanner.nextLine();
+		MiddleEarthCharacter character = characterManager.getCharacter(name);
+		
+		if(character == null) {
+			System.out.println("Character not found.");
+			return;
+		}
+		
+		System.out.println("Enter new health:");
+		double health = scanner.nextDouble();
+		System.out.println("Enter new power:");
+		double power = scanner.nextDouble();
+		scanner.nextLine();
+		
+		boolean updated = characterManager.updateCharacter(character, name, health, power);
+		if(updated) {
+			System.out.println("Your character has been updated.");
+		}else {
+			System.out.println("No change happened.");
+		}
 		
 	}
 
+	/*
+	 * allows the user to create their character with all possible bounds
+	 */
 	@SuppressWarnings("unused")
 	private void addCharacter() {
 		System.out.println("Enter Character Name: ");

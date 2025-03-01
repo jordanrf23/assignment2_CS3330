@@ -50,7 +50,7 @@ public class CharacterManager {
 	 * if there is any change will return true
 	 * if there is no change or character does not exist then return false
 	 */
-	public boolean updateCharacter(MiddleEarthCharacter character, String name, int health, int power) {
+	public boolean updateCharacter(MiddleEarthCharacter character, String name, double health, double power) {
 		
 		if(character != null) {
 			character.name = name;
