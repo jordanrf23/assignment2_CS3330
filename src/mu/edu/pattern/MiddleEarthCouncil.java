@@ -4,21 +4,32 @@ import mu.edu.characterManagementSystem.CharacterManager;
 
 public class MiddleEarthCouncil {
 	
+	private static MiddleEarthCouncil instance;
+	private CharacterManager characterManager;
+	
+	private MiddleEarthCouncil() {
+		characterManager = new CharacterManager(5);
+	}
+	
 	
 	/*
 	 * returns a single instance 
 	 */
-	static MiddleEarthCouncil getInstance() {
+	public static MiddleEarthCouncil getInstance() {
 		
-		return null;
+		if(instance == null) {
+			instance = new MiddleEarthCouncil();
+		}
+		
+		return instance;
 	}
 	
 	
 	/*
 	 * provides access to Character Manager
 	 */
-	CharacterManager getCharacterManager() {
-		return null;
+	public CharacterManager getCharacterManager() {
+		return characterManager;
 		
 	}
 
