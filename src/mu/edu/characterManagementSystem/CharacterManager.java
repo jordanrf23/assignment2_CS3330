@@ -1,5 +1,7 @@
 package mu.edu.characterManagementSystem;
 
+import java.util.Arrays;
+
 import mu.edu.classDesign.MiddleEarthCharacter;
 
 public class CharacterManager {
@@ -42,7 +44,13 @@ public class CharacterManager {
 		}
 		
 		return null;
-		
+	}
+	
+	/*
+	 * outputs the array for the characters 
+	 */
+	public MiddleEarthCharacter[] getAllCharacters() {
+		return Arrays.copyOf(characters, size);
 	}
 	
 	/*
