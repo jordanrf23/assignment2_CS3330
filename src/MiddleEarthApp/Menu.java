@@ -22,13 +22,13 @@ public class Menu {
 	
 	public void start() {
 		while (true) {
-			System.out.println("Middle Earth Character Management");
+			System.out.println("\nMiddle Earth Character Management");
 			System.out.println("Choose a number below");
 			System.out.println("1. Add Character");
 			System.out.println("2. Update Character");
 			System.out.println("3. Delete Character");
 			System.out.println("4. View All Characters");
-			System.out.println("5. Exucute Attacks");
+			System.out.println("5. Execute Attacks");
 			System.out.println("6. Exit");
 
 			int choice = scanner.nextInt();
@@ -77,7 +77,7 @@ public class Menu {
 				if(success) {
 					System.out.println(attacker.getName() + " attacked " + target.getName() + "successfully!");
 				}else {
-					System.out.println(attacker.getName() + " attack on " + target.getName() + "was unsucccessful!");
+					System.out.println(attacker.getName() + " attack on " + target.getName() + "was unsuccessful!");
 				}
 			}
 			
@@ -137,7 +137,6 @@ public class Menu {
 	/*
 	 * allows the user to create their character with all possible bounds
 	 */
-	@SuppressWarnings("unused")
 	private void addCharacter() {
 		System.out.println("Enter Character Name: ");
 		String name = scanner.nextLine();
@@ -145,33 +144,38 @@ public class Menu {
 		double health = scanner.nextDouble();
 		System.out.println("Enter Power: ");
 		double power = scanner.nextDouble();
+		scanner.nextLine();
 		
 		System.out.println("Choose Race: (Elf, Dwarf, Human, Orc, or Wizard");
-		String race = scanner.nextLine();
+		String race = scanner.nextLine().trim().toLowerCase();
 		
-		MiddleEarthCharacter character = switch (race.toLowerCase()) {
+		MiddleEarthCharacter character = null;
+		switch (race) {
 		case "elf":
 			new Elf(name, health, power);
+			break;
 		case "dwarf":
 			new Dwarf(name, health, power);
+			break;
 		case "human":
 			new Human(name, health, power);
+			break;
 		case "orc":
 			new Orc(name, health, power);
+			break;
 		case "wizard":
 			new Wizard(name, health, power);
+			break;
 		default:
-			System.out.println("Class was unreachable");
-			yield null;
+			System.out.println("uncompatable race");
+			return;
 		};
 		
-		if (character != null) {
-			characterManager.addCharacter(character);
+		boolean added = characterManager.addCharacter(character);
+		if (added) {
 			System.out.println("Character added!");
+		}else {
+			System.out.println("Could not add the character.");
 		}
 	}
-
-
-	
-	
 }

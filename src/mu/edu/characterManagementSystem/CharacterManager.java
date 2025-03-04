@@ -25,11 +25,11 @@ public class CharacterManager {
 	public boolean addCharacter(MiddleEarthCharacter c) {
 		//not enough room for the new character
 		if(size >= capacity) {
-			capacity= capacity * 2;
+			capacity = capacity * 2;
 			return false;
 		}
 		//there is enough room for the new character
-		characters[size++] =c;
+		characters[size++] = c;
 		return true;
 	}
 	
@@ -92,9 +92,14 @@ public class CharacterManager {
 	 * will display all characters at the disposal 
 	 */
 	public void displayAllCharacters() {
-		
-		for(int i = 0; i< size; i++) {
-			characters[i].displayInfo();
+		MiddleEarthCharacter[] characters = getAllCharacters();
+		if(characters.length == 0) {
+			System.out.println("No characters");
+		}
+		for(MiddleEarthCharacter character : characters) {
+			if(character != null) {
+				System.out.println(character.getName());
+			}
 		}
 		
 	}
