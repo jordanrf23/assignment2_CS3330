@@ -75,7 +75,7 @@ public class Menu {
 				}
 				boolean success = attacker.attack(target);
 				if(success) {
-					System.out.println(attacker.getName() + " attacked " + target.getName() + "successfully!");
+					System.out.println(attacker.getName() + " attacked " + target.getName() + " successfully!");
 				}else {
 					System.out.println(attacker.getName() + " attack on " + target.getName() + "was unsuccessful!");
 				}
@@ -152,19 +152,19 @@ public class Menu {
 		MiddleEarthCharacter character = null;
 		switch (race) {
 		case "elf":
-			new Elf(name, health, power);
+			character = new Elf(name, health, power);
 			break;
 		case "dwarf":
-			new Dwarf(name, health, power);
+			character = new Dwarf(name, health, power);
 			break;
 		case "human":
-			new Human(name, health, power);
+			character = new Human(name, health, power);
 			break;
 		case "orc":
-			new Orc(name, health, power);
+			character = new Orc(name, health, power);
 			break;
 		case "wizard":
-			new Wizard(name, health, power);
+			character = new Wizard(name, health, power);
 			break;
 		default:
 			System.out.println("uncompatable race");

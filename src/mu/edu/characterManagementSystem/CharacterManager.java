@@ -26,6 +26,7 @@ public class CharacterManager {
 		//not enough room for the new character
 		if(size >= capacity) {
 			capacity = capacity * 2;
+			characters = Arrays.copyOf(characters, capacity);
 			return false;
 		}
 		//there is enough room for the new character
@@ -61,15 +62,22 @@ public class CharacterManager {
 	public boolean updateCharacter(MiddleEarthCharacter character, String name, double health, double power) {
 		
 		if(character != null) {
-			character.name = name;
-			character.health = health;
-			character.power = power;
-			return true;
+			boolean changed = false;
+			if(!character.getName().equals(name)) {
+				character.setName(name);
+				changed = true;
+			}
+			if(character.getHealth() != health) {
+				character.setHealth(health);
+				changed = true;
+			}
+			if(character.getPower() != power) {
+				character.setPower(power);
+				changed = true;
+			}
+			return changed;
 		}
-		
-		
 		return false;
-		
 	}
 	
 	/*
@@ -79,13 +87,12 @@ public class CharacterManager {
 		
 		for(int i= 0; i<= size; i++) {
 			if(characters[i] == character) {
-				System.arraycopy(character, i + 1, character, i, size - i -1);
+				System.arraycopy(characters, i + 1, characters, i, size - i -1);
 				characters[--size] = null;
 				return true;
 			}
 		}
 		return false;
-		
 	}
 	
 	/*
@@ -95,11 +102,11 @@ public class CharacterManager {
 		MiddleEarthCharacter[] characters = getAllCharacters();
 		if(characters.length == 0) {
 			System.out.println("No characters");
+			return;
 		}
-		for(MiddleEarthCharacter character : characters) {
-			if(character != null) {
+		for(int i=0; i< size; i++) {
+			MiddleEarthCharacter character = characters[i];
 				System.out.println(character.getName());
-			}
 		}
 		
 	}
