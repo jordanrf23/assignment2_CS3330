@@ -59,8 +59,29 @@ public class Menu {
 		}
 	}
 
+	
+	/*
+	 * will enact all attacks and send a line on if the attack worked
+	 */
 	private void executeAttacks() {
-		
+		MiddleEarthCharacter[] characters = characterManager.getAllCharacters();
+		for(MiddleEarthCharacter attacker : characters) {
+			if(attacker == null) {
+				continue;
+			}
+			for(MiddleEarthCharacter target : characters) {
+				if(target == null || attacker == target) {
+					continue;
+				}
+				boolean success = attacker.attack(target);
+				if(success) {
+					System.out.println(attacker.getName() + " attacked " + target.getName() + "successfully!");
+				}else {
+					System.out.println(attacker.getName() + " attack on " + target.getName() + "was unsucccessful!");
+				}
+			}
+			
+		}
 		
 	}
 	
