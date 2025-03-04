@@ -68,6 +68,8 @@ public class Menu {
 		for(MiddleEarthCharacter attacker : characters) {
 			if(attacker == null) {
 				continue;
+			}else {
+				System.out.println("invalid attack");
 			}
 			for(MiddleEarthCharacter target : characters) {
 				if(target == null || attacker == target) {
